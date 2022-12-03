@@ -22,6 +22,6 @@ program d01_1
   close(fd)
   imaxcal = maxloc(cals, dim=1)
   maxcal = cals(imaxcal)
-  print "(a, i0, a, i0)", "Elf with most calories: ", imaxcal, " calories: ", maxcal
+  print "(a, i0, a, i0)", "Elf with most calories: ", imaxcal, ", calories: ", maxcal
 
 end program d01_1

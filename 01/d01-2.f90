@@ -21,19 +21,14 @@ program d01_2
     end if
   end do
   close(fd)
-  imaxcal = maxloc(cals, dim=1)
-  maxcal = cals(imaxcal)
-  print "(a, i0, a, i0)", "Elf with most calories: ", imaxcal, " calories: ", maxcal
 
   tops(:) = 0
   do ical = 1, size(cals)
-    do itop = 1, size(tops)
-      if (cals(ical) > tops(itop)) then
-        tops(itop + 1 : size(tops)) = tops(itop : size(tops) - 1)
-        tops(itop) = cals(ical)
-        exit
-      end if
-    end do
+    itop = findloc(cals(ical) > tops, .true., dim=1)
+    if (itop > 0) then
+      tops(itop + 1 : size(tops)) = tops(itop : size(tops) - 1)
+      tops(itop) = cals(ical)
+    end if
   end do
   print "(a, i0, a, i0)", "Sum of top ", size(tops), " calories: ", sum(tops)
 
