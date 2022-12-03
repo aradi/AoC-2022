@@ -22,6 +22,7 @@ program d03_1
     found1(priorities(: size(priorities) / 2)) = .true.
     found2(:) = .false.
     found2(priorities(size(priorities) / 2 + 1 :)) = .true.
+    print *, "PRIO:", findloc(found1 .and. found2, .true., dim=1)
     total_priority = total_priority + findloc(found1 .and. found2, .true., dim=1)
   end do
   close(fd)
