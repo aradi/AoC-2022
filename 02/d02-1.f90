@@ -1,4 +1,4 @@
-program d02
+program d02_1
   implicit none
 
   character, parameter :: first_choices(*) = ['A', 'B', 'C']
@@ -20,11 +20,12 @@ program d02
     ! Bring 2nd choice into the middle of the 0-2 interval (to position 1)
     ! Shift 1st choice by the same amount
     ! Fold 1st choice into the 0-2 interval
-    ! Calculate difference between 2nd and 1st choice  (-1, 0 or 1)
+    ! Calculate difference between shifted 2nd and 1st choices  (-1, 0 or 1)
     ! Shift difference into the interval [1, 3] to match outcome_score entry
-    outcome_ind = modulo(1 - (first_choice_ind - (second_choice_ind - 1)), 3) + 2
+    outcome_ind = 1 - modulo(first_choice_ind - (second_choice_ind - 1), 3) + 2
     score = score + shape_scores(second_choice_ind) + outcome_scores(outcome_ind)
   end do
+  close(fd)
   print "(a, i0)", "Score: ", score
 
-end program d02
+end program d02_1
