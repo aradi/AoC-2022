@@ -1,11 +1,9 @@
+disk_size = 70000000
 space_needed = 30000000
-
-with open("input.dat", "r") as fp:
-    lines = fp.readlines()
 
 paths = [""]
 sizes = {}
-for line in lines:
+for line in open("input.dat", "r"):
     if not line.strip():
         break
     if line.startswith("$ cd "):
@@ -23,7 +21,6 @@ for line in lines:
             path = "/".join(paths[0 : ipath + 1])
             sizes[path] = sizes.get(path, 0) + size
 
-disk_size = 70000000
 free_size = disk_size - sizes[""]
 to_be_freed = space_needed - free_size
 sizes_above = [size for size in sizes.values() if size >= to_be_freed]

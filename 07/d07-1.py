@@ -1,9 +1,8 @@
 limit = 100000
-with open("input.dat", "r") as fp:
-    lines = fp.readlines()
+
 paths = [""]
 sizes = {}
-for line in lines:
+for line in open("input.dat", "r"):
     if not line.strip():
         break
     if line.startswith("$ cd "):
