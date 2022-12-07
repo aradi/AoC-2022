@@ -1,3 +1,7 @@
+# Note: this solution assumes, that each directory is visited only once and the files in each
+# directory are listed only once.
+#
+
 disk_size = 70000000
 space_needed = 30000000
 

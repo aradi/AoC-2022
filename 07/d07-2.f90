@@ -1,3 +1,6 @@
+! Note: this solution assumes, that each directory is visited only once and the files in each
+! directory are listed only once.
+!
 program d07_2
     implicit none
 
